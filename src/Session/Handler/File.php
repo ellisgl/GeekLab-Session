@@ -2,6 +2,7 @@
 
 namespace GeekLab\Session\Handler;
 
+use GeekLab\ArrayTranslation;
 use GeekLab\Session\Data\DataInterface;
 
 /**
@@ -28,7 +29,7 @@ class File extends HandlerAbstract implements HandlerInterface
      * @param DataInterface $dataPHP
      * @throws \Exception
      */
-    public function __construct(string $save_path, string $prefix, DataInterface $dataStorage, DataInterface $dataPHP)
+    public function __construct(string $save_path, string $prefix, ArrayTranslation\TranslationInterface $dataStorage, ArrayTranslation\TranslationInterface $dataPHP)
     {
         $this->save_path   = $this->normalizePath($save_path); // I know I shouldn't do this here...
         $this->prefix      = $prefix;

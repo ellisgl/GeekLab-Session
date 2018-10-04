@@ -2,7 +2,7 @@
 
 namespace GeekLab\Session\Handler;
 
-use GeekLab\Session\Data\DataInterface;
+use GeekLab\ArrayTranslation;
 
 /**
  * PDO DB storage session handler
@@ -20,10 +20,10 @@ class PDO extends HandlerAbstract implements HandlerInterface
      * PDO constructor.
      *
      * @param \PDO          $db
-     * @param DataInterface $dataStorage
-     * @param DataInterface $dataPHP
+     * @param ArrayTranslation $dataStorage
+     * @param ArrayTranslation $dataPHP
      */
-    public function __construct(\PDO $db, DataInterface $dataStorage, DataInterface $dataPHP)
+    public function __construct(\PDO $db, ArrayTranslation\TranslationInterface $dataStorage, ArrayTranslation\TranslationInterface $dataPHP)
     {
         $this->db          = $db;
         $this->dataStorage = $dataStorage;
@@ -67,8 +67,15 @@ class PDO extends HandlerAbstract implements HandlerInterface
 
         if ($stmt->execute())
         {
+            $row = $stmt->fetch(\PDO::FETCH_ASSOC);
+
+            if(empty($row))
+            {
+                return '';
+            }
+
             // Convert the data column from DB to an array
-            $data = $this->dataStorage->decode($stmt->fetch(\PDO::FETCH_ASSOC)['data']);
+            $data = $this->dataStorage->decode($row['data']);
 
             // Return valid session serialized string if we have data, if not, return empty string.
             return (empty($data)) ? '' : $this->dataPHP->encode($data);

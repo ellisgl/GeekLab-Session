@@ -12,8 +12,7 @@
     ],
     "require": {
         "php": "^7.2",
-        "spatie/array-to-xml": "^2.7",
-        "vyuldashev/xml-to-array": "^1.0"
+        "geeklab/arraytranslation": "^1.0"
     },
     "autoload"          : {
         "psr-4" : {

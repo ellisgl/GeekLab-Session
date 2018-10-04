@@ -4,97 +4,89 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4a9a1874673155c394b9f41ec04bd5c6",
+    "content-hash": "1eddcfc26d2643ef7a94de9151641a06",
     "packages": [
         {
-            "name": "spatie/array-to-xml",
-            "version": "2.7.1",
+            "name": "geeklab/arraytranslation",
+            "version": "1.0.4",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spatie/array-to-xml.git",
-                "reference": "cb8befcd0c58ccf8baa5491e61a5c1d02a3acbba"
+                "url": "https://github.com/ellisgl/GeekLab-ArrayTranslation.git",
+                "reference": "3ef90d150f32a79f79043f920e1bb496aa88dcd2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/array-to-xml/zipball/cb8befcd0c58ccf8baa5491e61a5c1d02a3acbba",
-                "reference": "cb8befcd0c58ccf8baa5491e61a5c1d02a3acbba",
+                "url": "https://api.github.com/repos/ellisgl/GeekLab-ArrayTranslation/zipball/3ef90d150f32a79f79043f920e1bb496aa88dcd2",
+                "reference": "3ef90d150f32a79f79043f920e1bb496aa88dcd2",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.0"
+                "geeklab/toolbox": "^1.0",
+                "php": "^7.2"
             },
             "require-dev": {
-                "mockery/mockery": "^1.0",
-                "phpunit/phpunit": "^6.3",
-                "spatie/phpunit-snapshot-assertions": "^1.0"
+                "codeception/codeception": "^2.5",
+                "spatie/phpunit-snapshot-assertions": "^1.3"
             },
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "Spatie\\ArrayToXml\\": "src"
+                    "GeekLab\\": "src"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "MIT"
+                "GPL-3.0-or-later"
             ],
             "authors": [
                 {
-                    "name": "Freek Van der Herten",
-                    "email": "freek@spatie.be",
-                    "homepage": "https://murze.be",
-                    "role": "Developer"
+                    "name": "ellisgl",
+                    "email": "example@example.com"
                 }
             ],
-            "description": "Convert an array to xml",
-            "homepage": "https://github.com/spatie/array-to-xml",
-            "keywords": [
-                "array",
-                "convert",
-                "xml"
-            ],
-            "time": "2018-02-20T15:21:24+00:00"
+            "description": "Convert array to another data format or convert a data format to an array.",
+            "time": "2018-10-04T02:22:40+00:00"
         },
         {
-            "name": "vyuldashev/xml-to-array",
-            "version": "v1.0.0",
+            "name": "geeklab/toolbox",
+            "version": "1.0.8",
             "source": {
                 "type": "git",
-                "url": "https://github.com/vyuldashev/xml-to-array.git",
-                "reference": "147423caff4319f976a0a95a55a7088ae48d0d7a"
+                "url": "https://github.com/ellisgl/GeekLab-ToolBox.git",
+                "reference": "4b396dc488b20f1eeb1d6794b8ed2bef878359b8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vyuldashev/xml-to-array/zipball/147423caff4319f976a0a95a55a7088ae48d0d7a",
-                "reference": "147423caff4319f976a0a95a55a7088ae48d0d7a",
+                "url": "https://api.github.com/repos/ellisgl/GeekLab-ToolBox/zipball/4b396dc488b20f1eeb1d6794b8ed2bef878359b8",
+                "reference": "4b396dc488b20f1eeb1d6794b8ed2bef878359b8",
                 "shasum": ""
             },
             "require": {
-                "php": ">=7.1"
+                "php": "^7.2"
             },
             "require-dev": {
-                "larapack/dd": "^1.1",
-                "phpunit/phpunit": "^6.4",
-                "spatie/array-to-xml": "^2.7"
+                "codeception/codeception": "^2.4",
+                "digitickets/phpunit-errorhandler": "^4.0",
+                "spatie/phpunit-snapshot-assertions": "^1.3"
             },
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "Vyuldashev\\XmlToArray\\": "src"
+                    "GeekLab\\": "src"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "MIT"
+                "GPL-3.0-or-later"
             ],
             "authors": [
                 {
-                    "name": "Vladimir Yuldashev",
-                    "email": "misterio92@gmail.com"
+                    "name": "ellisgl",
+                    "email": "example@example.com"
                 }
             ],
-            "description": "Convert xml to an array",
-            "time": "2017-10-12T21:39:31+00:00"
+            "description": "A collection of \"utility\" classes.",
+            "time": "2018-08-15T03:06:11+00:00"
         }
     ],
     "packages-dev": [
@@ -1466,6 +1458,55 @@
             "time": "2016-10-03T07:35:21+00:00"
         },
         {
+            "name": "spatie/array-to-xml",
+            "version": "2.7.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/array-to-xml.git",
+                "reference": "cb8befcd0c58ccf8baa5491e61a5c1d02a3acbba"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/array-to-xml/zipball/cb8befcd0c58ccf8baa5491e61a5c1d02a3acbba",
+                "reference": "cb8befcd0c58ccf8baa5491e61a5c1d02a3acbba",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.0",
+                "phpunit/phpunit": "^6.3",
+                "spatie/phpunit-snapshot-assertions": "^1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\ArrayToXml\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Freek Van der Herten",
+                    "email": "freek@spatie.be",
+                    "homepage": "https://murze.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Convert an array to xml",
+            "homepage": "https://github.com/spatie/array-to-xml",
+            "keywords": [
+                "array",
+                "convert",
+                "xml"
+            ],
+            "time": "2018-02-20T15:21:24+00:00"
+        },
+        {
             "name": "symfony/polyfill-ctype",
             "version": "v1.8.0",
             "source": {
@@ -1618,6 +1659,47 @@
             ],
             "description": "A small library for converting tokenized PHP source code into XML and potentially other formats",
             "time": "2017-04-07T12:08:54+00:00"
+        },
+        {
+            "name": "vyuldashev/xml-to-array",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/vyuldashev/xml-to-array.git",
+                "reference": "147423caff4319f976a0a95a55a7088ae48d0d7a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/vyuldashev/xml-to-array/zipball/147423caff4319f976a0a95a55a7088ae48d0d7a",
+                "reference": "147423caff4319f976a0a95a55a7088ae48d0d7a",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1"
+            },
+            "require-dev": {
+                "larapack/dd": "^1.1",
+                "phpunit/phpunit": "^6.4",
+                "spatie/array-to-xml": "^2.7"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Vyuldashev\\XmlToArray\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Vladimir Yuldashev",
+                    "email": "misterio92@gmail.com"
+                }
+            ],
+            "description": "Convert xml to an array",
+            "time": "2017-10-12T21:39:31+00:00"
         },
         {
             "name": "webmozart/assert",

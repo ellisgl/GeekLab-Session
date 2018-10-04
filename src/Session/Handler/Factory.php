@@ -2,6 +2,7 @@
 
 namespace GeekLab\Session\Handler;
 
+use GeekLab\ArrayTranslation;
 use GeekLab\Session;
 
 /**
@@ -12,41 +13,33 @@ use GeekLab\Session;
  */
 final class Factory
 {
-    private $settings;
-    private $dataStorage;
-    private $dataPHP;
-
     /**
-     * Factory constructor.
-     * @param array                      $settings
-     * @param Session\Data\DataInterface $dataStorage
-     * @param Session\Data\DataInterface $dataPHP
+     * Factory builder
+     *
+     * @param array                                 $settings
+     * @param ArrayTranslation\TranslationInterface $dataStorage
+     * @param ArrayTranslation\TranslationInterface $dataPHP
+     * @return HandlerInterface
+     * @throws \Exception
      */
-    public function __construct(array $settings, Session\Data\DataInterface $dataStorage, Session\Data\DataInterface $dataPHP)
+    public static function create(array $settings, ArrayTranslation\TranslationInterface $dataStorage, ArrayTranslation\TranslationInterface $dataPHP): HandlerInterface
     {
-        $this->settings    = $settings;
-        $this->dataStorage = $dataStorage;
-        $this->dataPHP     = $dataPHP;
-    }
-
-    public function create(): HandlerInterface
-    {
-        switch ($this->settings['storage'])
+        switch ($settings['storage'])
         {
             case 'pdo':
-                return new PDO($this->settings['db'], $this->dataStorage, $this->dataPHP);
+                return new PDO($settings['db'], $dataStorage, $dataPHP);
                 break;
 
             case 'file':
-                (isset($this->settings['save_path']) && !empty($this->settings['save_path'])) ?: $this->settings['save_path'] = ini_get('session.save_path');
-                (isset($this->settings['prefix']) && !empty($this->settings['prefix'])) ?: $this->settings['prefix'] = 'php_session_';
+                (isset($settings['save_path']) && !empty($settings['save_path'])) ?: $settings['save_path'] = ini_get('session.save_path');
+                (isset($settings['prefix']) && !empty($settings['prefix'])) ?: $settings['prefix'] = 'php_session_';
 
-                return new File($this->settings['save_path'], $this->settings['prefix'], $this->dataStorage, $this->dataPHP);
+                return new File($settings['save_path'], $settings['prefix'], $dataStorage, $dataPHP);
                 break;
 
             default:
                 // Throw invalid storage type error
-                throw new \Exception('Invalid storage type: "' . $this->settings['storage'] . '" is not supported.');
+                throw new \Exception('Invalid storage type: "' . $settings['storage'] . '" is not supported.');
         }
     }
 }
