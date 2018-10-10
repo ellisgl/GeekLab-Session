@@ -19,7 +19,7 @@ class PDO extends HandlerAbstract implements HandlerInterface
     /**
      * PDO constructor.
      *
-     * @param \PDO          $db
+     * @param \PDO             $db
      * @param ArrayTranslation $dataStorage
      * @param ArrayTranslation $dataPHP
      */
@@ -47,7 +47,7 @@ class PDO extends HandlerAbstract implements HandlerInterface
      */
     public function close(): bool
     {
-        $this->db = NULL;
+        // Just return true...
         return TRUE;
     }
 
@@ -69,7 +69,7 @@ class PDO extends HandlerAbstract implements HandlerInterface
         {
             $row = $stmt->fetch(\PDO::FETCH_ASSOC);
 
-            if(empty($row))
+            if (empty($row))
             {
                 return '';
             }
@@ -110,7 +110,7 @@ class PDO extends HandlerAbstract implements HandlerInterface
         $stmt->bindParam(':access', $access);
         $stmt->bindParam(':data', $data);
 
-        // Attempt Execution
+        // Run statement and return true if all was good and false if everything went wrong!
         return ($stmt->execute()) ? TRUE : FALSE;
     }
 
@@ -122,32 +122,31 @@ class PDO extends HandlerAbstract implements HandlerInterface
      */
     public function destroy(string $id): bool
     {
-        // Set query
+        // Set query.
         $stmt = $this->db->prepare('DELETE FROM sessions WHERE id = :id');
 
-        // Bind data
+        // Bind data.
         $stmt->bindParam(':id', $id);
 
+        // Run statement and return true if all was good and false if everything went wrong!
         return ($stmt->execute()) ? TRUE : FALSE;
     }
 
     /**
      * Garbage collection.
      *
-     * @param  int $ttl - Time To Live in seconds
+     * @param  int $old - Remove if last access time is less than this.
      * @return bool
      */
-    public function gc(int $ttl): bool
+    public function _gc(int $old): bool
     {
-        // Calculate what is to be deemed old
-        $old = time() - ($ttl);
-
         // Set query
-        $stmt = $this->db->prepare('DELETE * FROM sessions WHERE access < :old');
+        $stmt = $this->db->prepare('DELETE FROM sessions WHERE access < :old');
 
         // Bind data
         $stmt->bindParam(':old', $old);
 
+        // Run statement and return true if all was good and false if everything went wrong!
         return ($stmt->execute()) ? TRUE : FALSE;
     }
 }

@@ -111,20 +111,17 @@ class File extends HandlerAbstract implements HandlerInterface
     /**
      * Garbage collection.
      *
-     * @param  int $ttl - Time To Live in seconds
+     * @param  int $old - Remove if last access time is less than this.
      * @return bool
      */
-    public function gc(int $ttl): bool
+    public function _gc(int $old): bool
     {
-        // Calculate what is to be deemed old
-        $old = time() - ($ttl);
-
         // Create a file search
         $expr = $this->save_path . $this->prefix . '*';
 
         foreach (glob($expr) as $file)
         {
-            if (filetime($file) < $old)
+            if (filemtime($file) < $old)
             {
                 unlink($file);
             }
@@ -134,8 +131,7 @@ class File extends HandlerAbstract implements HandlerInterface
     }
 
     /**
-     * Normalize the path, making sure it exists, readable and ends with a
-     * separator.
+     * Normalize the path, making sure it exists, readable and ends with a separator.
      *
      * @param string $path
      * @return string

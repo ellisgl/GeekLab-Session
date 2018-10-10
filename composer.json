@@ -12,7 +12,8 @@
     ],
     "require": {
         "php": "^7.2",
-        "geeklab/arraytranslation": "^1.0"
+        "geeklab/arraytranslation": "^1.0",
+        "codeception/codeception": "^2.5"
     },
     "autoload"          : {
         "psr-4" : {
@@ -20,7 +21,5 @@
         }
     },
     "require-dev": {
-        "phpunit/phpunit": "^7.2",
-        "phpunit/dbunit": "^4.0"
     }
 }
