@@ -1,5 +1,5 @@
 <?php
-
+// Todo: ArrayTranslation should be some sort of generic interface, like Interfaces\Convert
 namespace GeekLab\Session\Handler;
 
 use GeekLab\ArrayTranslation;
