@@ -13,6 +13,7 @@ class Session
 {
     /**
      * Override PHPs default session handler.
+     * Todo: Replace settings with injected objects.
      *
      * @param array $settings
      * @throws \Exception
